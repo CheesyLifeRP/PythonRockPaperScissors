@@ -33,7 +33,7 @@ class RockPaperScissors:
         if player == computer:
             result = "Draw"
         elif (player + 1)%3 == computer:
-            result = "Player wins"
+            result = "{name} wins".format(name=self.name)
         elif (computer + 1)%3 == player:
             result = "Computer Wins"
         return result
@@ -91,7 +91,11 @@ class RockPaperScissors:
         weaponsLists = self.getWeaponLists()
         return weaponsLists[userGame]
 
+    def getName(self):
+        self.name = input("Enter username\n")
+
     def play(self):
+        name = self.getName()
         weapon = self.getGame()
         player = self.getUserChoice(weapon)
         while player in [0,1,2]:
